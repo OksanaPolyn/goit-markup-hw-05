@@ -857,3 +857,4 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
 .modal-bnt-close:focus {
   fill: var(--primary-text-color);
 }
+aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
