@@ -9,7 +9,13 @@
     --effect-color: #2F303A;
     --btn-comand:#F5F4FA ;
     --card-portfol:#eeeeee;
+    
+    --set-gap: 30px;
+    --card-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    --timing-duration: 250ms;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 li {
     list-style-type: none;
 }
@@ -764,4 +770,90 @@ box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12),
 .footer-soc-link:not(:last-child)
  {
     margin-right: 10px;
+}
+
+
+/*Модальное окно*/
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+
+    transform:  opacity var(--timing-duration) var(--timing-function), 
+    visibility var(--timing-duration) var(--timing-function);  
+}
+
+/*.modal {
+    width: 528px;
+    height: 581px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    transition: translate 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+*/
+
+.backdrop.is-hidden {
+    opacity:0; 
+    visibility: hidden; 
+    pointer-events: none;
+}
+
+
+
+.modal {
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 528px;
+    height: 581px;
+    background-color: var(--main-btn-color);
+    box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+    border-radius: 4px;
+    
+    transform: translate(-50%, -50% );
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.75);
+    opacity: 0;
+  }
+
+.modal-bnt-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-radius: 50%;
+    fill: #000000;
+    transition: fill var(--timing-duration) var(--timing-function);
+}
+
+.modal-bnt-close:hover,
+.modal-bnt-close:focus {
+  fill: var(--primary-text-color);
 }
